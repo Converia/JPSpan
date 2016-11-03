@@ -60,6 +60,11 @@ function JPSpan_ErrorHandler($level, $message, $file, $line) {
         case E_USER_NOTICE:
             $code = 2001;
         break;
+        case E_DEPRECATED:
+        case E_NOTICE:
+        case E_WARNING: 
+            return;
+        break;
         case E_USER_WARNING:
             $code = 2002;
         break;
@@ -95,7 +100,7 @@ function JPSpan_ErrorHandler($level, $message, $file, $line) {
     
     // Must exit on any error in case of multiple errors
     // causing Javascript syntax errors
-    exit();
+    //exit();
 
 }
 
@@ -137,7 +142,7 @@ function JPSpan_ExceptionHandler($exception) {
     $M = & JPSpan_Monitor::instance();
     $M->announceError($name, $code, $message, $file, $exception->getLine());
     
-    exit();
+    //exit();
 
 }
 

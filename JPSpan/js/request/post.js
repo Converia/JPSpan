@@ -56,7 +56,7 @@ function JPSpan_Request_Post(encoder) {
                     );
             break;
         }
-        this.http.setRequestHeader('Content-Length', this.body.length);
+        //this.http.setRequestHeader('Content-Length', this.body.length);
         this.http.setRequestHeader(
                     'Content-Type',
                     'application/x-www-form-urlencoded; charset=UTF-8'

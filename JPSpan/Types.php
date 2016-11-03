@@ -13,7 +13,21 @@
 * @subpackage Types
 * @access public
 */
-class JPSpan_Object {}
+class JPSpan_Object extends ArrayObject
+{     
+    function __set($prop, $val)
+    {
+        parent::offsetSet($prop, $val);
+    }
+    
+    function __get($prop)
+    {
+        return parent::offsetGet($prop);
+    }
+    public function getObjVars(){
+        return get_object_vars($this);
+    }
+}
 //--------------------------------------------------------------------------------
 
 /**

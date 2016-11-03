@@ -70,7 +70,7 @@ JPSpan_HttpClient.prototype = {
 
         request.type = 'sync';
         request.prepare(this.xmlhttp);
-        this.xmlhttp.setRequestHeader('Accept-Charset','UTF-8');
+        //this.xmlhttp.setRequestHeader('Accept-Charset','UTF-8');
         request.send();
         
         if ( this.xmlhttp.status == 200 ) {
@@ -118,7 +118,7 @@ JPSpan_HttpClient.prototype = {
         
         request.type = 'async';
         request.prepare(this.xmlhttp);
-        this.xmlhttp.setRequestHeader('Accept-Charset','UTF-8');
+        //this.xmlhttp.setRequestHeader('Accept-Charset','UTF-8');
 
         var self = this;
 
@@ -196,7 +196,7 @@ JPSpan_HttpClient.prototype = {
         if ( e.lineNumber ) {
             errorMsg += 'Line: '+e.lineNumber+"\n";
         };
-        alert(errorMsg);
+        //alert(errorMsg);
     },
 
     // Callback for asyncCalls

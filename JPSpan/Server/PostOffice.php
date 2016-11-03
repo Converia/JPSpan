@@ -111,10 +111,10 @@ class JPSpan_Server_PostOffice extends JPSpan_Server {
                 $M->setResponseInfo('payload',$response);
                 $M->announceSuccess();
                 
-                $response = JPSpan_Serializer::serialize($response);
-                
+                //$response = JPSpan_Serializer::serialize($response);
+				$response = json_encode($response);
                 if ( $sendHeaders ) {
-                    header('Content-Length: '.strlen($response));
+                    //header('Content-Length: '.strlen($response));
                     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); 
                     header('Last-Modified: ' . gmdate( "D, d M Y H:i:s" ) . 'GMT'); 
                     header('Cache-Control: no-cache, must-revalidate'); 
@@ -216,7 +216,7 @@ class JPSpan_Server_PostOffice extends JPSpan_Server {
     */
     function & getGenerator() {
         require_once JPSPAN . 'Generator.php';
-        $G = & new JPSpan_Generator();
+        $G = new JPSpan_Generator();
         $G->init(
             new JPSpan_PostOffice_Generator(),
             $this->descriptions,

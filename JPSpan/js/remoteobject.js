@@ -45,7 +45,7 @@ JPSpan_RemoteObject.prototype = {
     
     // Timeout for async requests in milliseconds
     // @access public
-    timeout: 20000,
+    timeout: 180000,
     
     // Called when a error in handling the response from
     // the server (e.g. the response was junk or some PHP
@@ -193,10 +193,10 @@ JPSpan_RemoteObject.prototype = {
         self.__responseHandler.onLoad = function(response, callName) {
 
             try {
-                dataFunc = eval(response);
-
+                //dataFunc = eval(response);
+				data = JSON.parse(response);
                 try {
-                    data = dataFunc();
+                    //data = dataFunc();
                     
                     if ( this.userHandler[callName] ) {
                         try {
@@ -303,10 +303,10 @@ JPSpan_RemoteObject.prototype = {
             var response = this.__client.call(request);
 
             try {
-                var dataFunc = eval(response);
-                
+                //var dataFunc = eval(response);
+				data = JSON.parse(response);
                 try {
-                    return dataFunc();
+                    return data;
                 } catch (e) {
                 
                     if ( e.name == 'Server_Error' ) {

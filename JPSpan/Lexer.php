@@ -196,7 +196,7 @@ class JPSpan_Lexer {
 		$this->_case = $case;
 		$this->_regexes = array();
 		$this->_parser = &$parser;
-		$this->_mode = &new JPSpan_LexerStateStack($start);
+		$this->_mode = new JPSpan_LexerStateStack($start);
 		$this->_mode_handlers = array();
 	}
 	

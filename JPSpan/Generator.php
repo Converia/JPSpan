@@ -54,7 +54,7 @@ class JPSpan_Generator {
     */
     function getClient() {
         require_once JPSPAN . 'CodeWriter.php';
-        $Code = & new JPSpan_CodeWriter();
+        $Code = new JPSpan_CodeWriter();
         $this->ClientGenerator->generate($Code);
         return $Code->toString();
     }
@@ -209,7 +209,7 @@ foreach ( $Description->methods as $method => $url ) {
 
     function getClient() {
         require_once JPSPAN . 'CodeWriter.php';
-        $Code = & new JPSpan_CodeWriter();
+        $Code = new JPSpan_CodeWriter();
         $this->generate($Code);
         $client = $Code->toString();
         

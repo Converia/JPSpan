@@ -94,7 +94,7 @@ class JPSpan_Unserializer_XML {
         
             $class = $this->dict[$tag];
 
-            $current = & new $class($this, $attrs);
+            $current = new $class($this, $attrs);
             $this->stack[] = & $current;
     
             
@@ -493,7 +493,7 @@ class JPSpan_Unserializer_XML_Object extends JPSpan_Unserializer_XML_Node {
                 return;
             }
             
-            $this->value = & new $class;
+            $this->value = new $class;
             
         } else {
             $errorMsg = 'Object node requires class attribute';

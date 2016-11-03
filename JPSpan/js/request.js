@@ -30,7 +30,7 @@ JPSpan_Request.prototype = {
     http: null,
 
     // Timeout in milliseconds for requests
-    timeout: 20000,
+    timeout: 180000,
     
     // Add an argument for the remote method
     // @param string argument name
@@ -62,7 +62,7 @@ JPSpan_Request.prototype = {
         this.args = null;
         this.type = null;
         this.http = null;
-        this.timeout = 20000;
+        this.timeout = 180000;
     },
     
     // Used internally by request objects to build the request payload

@@ -204,7 +204,7 @@ class JPSpan_Include {
     * @access private
     */
     function JPSpan_Include() {
-        $this->Manager = & new JPSpan_Include_Manager();
+        $this->Manager = new JPSpan_Include_Manager();
     }
     
     /**
@@ -305,7 +305,7 @@ class JPSpan_Include_Manager {
     
         if ( !in_array($name,$this->includes) ) {
             $this->includes[] = $name;
-            $File = & new JPSpan_Include_File($this);
+            $File = new JPSpan_Include_File($this);
             $File->parse($src);
             $this->code[$name] = $File->src;
             $this->resolveDependencies($File->includes);
@@ -375,7 +375,7 @@ class JPSpan_Include_File {
     * @access protected
     */
     function parse($src) {
-        $Parser = & new JPSpan_Include_Parser($this);
+        $Parser = new JPSpan_Include_Parser($this);
         $Parser->parse($src);
     }
     

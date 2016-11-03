@@ -49,7 +49,7 @@ function JPSpan_Request_RawPost(encoder) {
                     );
             break;
         };
-        this.http.setRequestHeader('Content-Length', this.body.length);
+        //this.http.setRequestHeader('Content-Length', this.body.length);
         this.http.setRequestHeader('Content-Type',this.encoder.contentType);
     };
     

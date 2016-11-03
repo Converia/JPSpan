@@ -87,8 +87,8 @@ class JPSpan_Serializer {
     */
     function serialize($data) {
         JPSpan_getTmpVar(TRUE);
-        $code = & new JPSpan_CodeWriter();
-        $root = & new JPSpan_RootElement($data);
+        $code = new JPSpan_CodeWriter();
+        $root = new JPSpan_RootElement($data);
         $root->generate($code);
         return $code->toString();
     }
@@ -129,9 +129,9 @@ class JPSpan_Serializer {
             if ( !is_null($file) ) {
                 require_once $file;
             }
-            $element = & new $class();
+            $element = new $class();
         } else {
-            $element = & new JPSpan_SerializedNull();
+            $element = new JPSpan_SerializedNull();
         }
         $element->setTmpVar();
         $element->setValue($data);
@@ -150,13 +150,14 @@ class JPSpan_Serializer {
 * @subpackage Serializer
 */
 function JPSpan_getTmpVar($refresh = FALSE) {
-    static $count = 1;
-    if ( !$refresh ) {
-        $name = 't'.$count;
-        $count++;
-        return $name;
-    }
-    $count = 1;
+	static $count = 1;
+	if ( !$refresh ) {
+		$letter = chr(65+rand(0,25));
+		$name = $letter.$count;
+		$count++;
+		return $name;
+	}
+	$count = 1;
 }
 //-----------------------------------------------------------------------------
 /**
@@ -411,7 +412,7 @@ class JPSpan_SerializedArray extends JPSpan_SerializedElement {
         $toString.= "} return str+']';";
         $toString.= "}";
 
-        $code->append("{$this->tmpName}.toString = $toString;");
+        //$code->append("{$this->tmpName}.toString = $toString;");
     }
 }
 //-----------------------------------------------------------------------------
