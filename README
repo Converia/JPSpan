@@ -14,7 +14,6 @@ Note this is beta code - APIs may change!
 provides tools to "hook up" PHP and Javascript, for the purpose of fetching data from PHP into a web page which has already loaded, without reloading the entire page.
 
 The objective is to make connecting a Javascript client with a PHP server as painless and error-free as possible. To this end [[start|JPSpan]] allows you to define a class in PHP and call it's methods directly (and remotely) from Javascript. That means if you have a PHP class like;
-
 ```
 <?php
 //...
