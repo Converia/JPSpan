@@ -11,5 +11,31 @@ http://sourceforge.net/mail/?group_id=121636
 Note this is beta code - APIs may change!
 
 
-***In A Hurry***
-http://jpspan.sourceforge.net/wiki/doku.php?id=examples:inahurry
+provides tools to "hook up" PHP and Javascript, for the purpose of fetching data from PHP into a web page which has already loaded, without reloading the entire page.
+
+The objective is to make connecting a Javascript client with a PHP server as painless and error-free as possible. To this end [[start|JPSpan]] allows you to define a class in PHP and call it's methods directly (and remotely) from Javascript. That means if you have a PHP class like;
+
+```
+<?php
+//...
+
+class Math
+{
+    function multiply( $x, $y )
+    {
+        return $x * $y;
+    }
+}
+
+//...
+?>
+```
+
+You can use this class "natively" from JavaScript on the //client-side//, calling it like this:
+
+```
+var m = new math();
+alert( m.multiply(2,2) );
+```
+
+The intent is to make building "sticky" DHTML or web-based [[http://www.mozilla.org/projects/xul/|XUL]]  applications, where the user interface remains static (not reloaded) in the users web browser, while data can be fetched dynamically from a remote web server, in response to user events.
