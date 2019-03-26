@@ -80,8 +80,8 @@ class JPSpan_Listener {
     function getRequestData () {
         switch ( $_SERVER['REQUEST_METHOD'] ) {
             case 'POST':
-                global $HTTP_RAW_POST_DATA;
-                if ( $HTTP_RAW_POST_DATA ) {
+				$postdata = file_get_contents("php://input");
+                if ( $postdata ) {
                     return JPSpan_RequestData_RawPost::fetch($this->encoding);
                 } else {
                     return JPSpan_RequestData_Post::fetch($this->encoding);

@@ -34,8 +34,9 @@ class JPSpan_RequestData_RawPost {
     * @static
     */
     function fetch($encoding) {
-        global $HTTP_RAW_POST_DATA;
-        return JPSpan_Unserializer::unserialize($HTTP_RAW_POST_DATA, $encoding);
+
+		$postdata = file_get_contents("php://input");
+        return JPSpan_Unserializer::unserialize($postdata, $encoding);
     }
 }
 //--------------------------------------------------------------------------------

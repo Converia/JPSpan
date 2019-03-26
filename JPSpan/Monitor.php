@@ -79,7 +79,7 @@ class JPSpan_Monitor {
     * @access private
     */
     function prepareData() {
-        global $HTTP_RAW_POST_DATA;
+		$postdata = file_get_contents("php://input");
         
         $Data = array (
             'timestamp' => time(),
@@ -89,7 +89,7 @@ class JPSpan_Monitor {
             'SERVER'=>$_SERVER,
             'GET'=>$_GET,
             'POST'=>$_POST,
-            'RAWPOST'=>$HTTP_RAW_POST_DATA,
+            'RAWPOST'=>$postdata,
         );
         
         if ( function_exists('apache_request_headers') ) {
